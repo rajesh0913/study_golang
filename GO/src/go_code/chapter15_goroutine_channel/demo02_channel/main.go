@@ -39,5 +39,21 @@ func main() {
 	num04 := <-intChan
 	//num05 := <-intChan
 	fmt.Println(num02, num03, num04)
+
 	//fmt.Println(num05)
+	//7. channel关闭：只能读不能写,内置函数
+	close(intChan)
+	//8. channel遍历:for-range
+	//	遍历时，管道没有关闭，则出现deadlock；管道已经关闭，则正常遍历，遍历完后退出
+	intChan = make(chan int, 100)
+	fmt.Printf("channel len = %v, channel cap = %v\n", len(intChan), cap(intChan))
+	for i := 0; i < 100; i++ {
+		intChan <- i * 2
+	}
+	//普通for循环不能完全遍历
+	close(intChan)
+	for v := range intChan {
+		fmt.Println("v = ", v)
+	}
+
 }
