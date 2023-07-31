@@ -56,6 +56,7 @@ func main() {
 	(*pupil).Testing()
 	(*pupil).Student.SetScore(98)
 	(*pupil).Student.ShowInfo()
+	fmt.Println()
 
 	var graduate = &Graduate{
 		Student{

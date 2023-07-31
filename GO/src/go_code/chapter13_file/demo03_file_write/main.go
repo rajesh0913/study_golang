@@ -10,7 +10,7 @@ import (
 func main() {
 	/**************************************************************/
 	//1. 新建文件并写入内容
-	file_path := "F:/GO/project/src/go_code/chapter13_file/demo03_file_write/test01.txt"
+	file_path := "./test01.txt"
 	file, err := os.OpenFile(file_path, os.O_WRONLY|os.O_CREATE, 0666) //os.O_CREATE
 	if err != nil {
 		fmt.Println("open file err: ", err)
@@ -18,7 +18,7 @@ func main() {
 	}
 	defer file.Close()
 
-	str := "test01...\r\n" //不同编辑器识别不同换行符
+	str := "test0101...\r\n" //不同编辑器识别不同换行符
 	//写入时，使用带缓存的“*writer”
 	writer := bufio.NewWriter(file)
 	for i := 0; i < 5; i++ {
@@ -29,7 +29,7 @@ func main() {
 
 	/**************************************************************/
 	//2. 打开已经存在的文件，覆盖原有内容
-	file_path = "F:/GO/project/src/go_code/chapter13_file/demo03_file_write/test02.txt"
+	file_path = "./test02.txt"
 	file, err = os.OpenFile(file_path, os.O_WRONLY|os.O_TRUNC, 0666) //os.O_TRUNC
 	if err != nil {
 		fmt.Println("open file err: ", err)
@@ -37,7 +37,7 @@ func main() {
 	}
 
 	defer file.Close()
-	str = "test02...\r\n"
+	str = "test0202...\r\n"
 	//写入时，使用带缓存的“*writer”
 	writer = bufio.NewWriter(file)
 	for i := 0; i < 10; i++ {
@@ -48,7 +48,7 @@ func main() {
 
 	/**************************************************************/
 	//3. 打开已经存在的文件，追加内容
-	file_path = "F:/GO/project/src/go_code/chapter13_file/demo03_file_write/test03.txt"
+	file_path = "./test03.txt"
 	file, err = os.OpenFile(file_path, os.O_WRONLY|os.O_APPEND, 0666) //O_APPEND
 	if err != nil {
 		fmt.Println("open file err: ", err)
@@ -67,7 +67,7 @@ func main() {
 
 	/**************************************************************/
 	//4. 打开已经存在的文件，显示到终端，追加内容
-	file_path = "F:/GO/project/src/go_code/chapter13_file/demo03_file_write/test04.txt"
+	file_path = "./test04.txt"
 	file, err = os.OpenFile(file_path, os.O_RDWR|os.O_APPEND, 0666) //O_APPEND
 	if err != nil {
 		fmt.Println("open file err: ", err)

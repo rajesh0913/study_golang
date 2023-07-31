@@ -15,7 +15,7 @@ func main() {
 	var b Point
 	var isOk bool
 	b, isOk = a.(Point)
-	//检查机制
+	//检查机制，没有的话直接进行断言+赋值，失败会panic
 	if isOk {
 		fmt.Println(b, "Convert success!")
 	} else {

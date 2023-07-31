@@ -6,7 +6,7 @@ import "fmt"
 //不能包含任何变量
 type Usb interface {
 	//声明没有实现的方法
-	Start() //不能有方法体{}
+	Start() // 不能有方法体{}
 	Stop()
 }
 

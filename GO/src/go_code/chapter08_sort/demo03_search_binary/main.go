@@ -5,7 +5,7 @@ import "fmt"
 func binary_search(arr *[6]int, Left int, Right int, search_val int) {
 
 	if Left > Right {
-		fmt.Printf("no %v in the array!ln", search_val)
+		fmt.Printf("no %v in the array!\n", search_val)
 		return
 	}
 

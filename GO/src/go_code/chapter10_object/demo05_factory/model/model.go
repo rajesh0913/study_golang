@@ -1,6 +1,6 @@
 package model
 
-//小写字母开头
+//小写字母开头，不能直接使用
 //跨包使用->工厂模式
 type student struct {
 	Name  string
@@ -15,7 +15,7 @@ func NewStudent(n string, s int) *student {
 	}
 }
 
-//score不可以直接调用，提供方法返回对应餐宿
+//score不可以直接调用，提供方法返回对应参数
 func (stu *student) GetScore() float64 {
 	return stu.score
 }

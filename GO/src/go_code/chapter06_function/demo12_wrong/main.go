@@ -41,7 +41,7 @@ func main() {
 	//支持自定义错误
 	//errors.new("错误说明")，返回一个error类型的值，表示错误
 	//panic内置函数，接收一个interfac类型的值，可以接收error，【输出错误信息，终止程序】
-	test02("config")
+	test02("config.ini")
 
 	//错误处理机制1
 	//1. 发生错误，捕捉错误，处理保证程序继续运行

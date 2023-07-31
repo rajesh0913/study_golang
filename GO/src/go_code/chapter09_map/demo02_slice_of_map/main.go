@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+//map本身就可以动态增删map自身数据
+//map切片增加的是map的个数
 //monster:记录monster信息（name、age）
 func main() {
 	monsters := make([]map[string]string, 2)
