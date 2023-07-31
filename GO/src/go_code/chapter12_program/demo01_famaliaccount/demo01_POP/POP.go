@@ -41,6 +41,7 @@ func main() {
 			fmt.Print("本次收入说明：")
 			fmt.Scanln(&note)
 			details += fmt.Sprintf("收入\t%v\t\t%v\t\t%v\n", balance, money, note)
+			isCount = true
 		case "3":
 			fmt.Println("登记支出：")
 			fmt.Print("本次支出金额：")
@@ -53,6 +54,7 @@ func main() {
 			fmt.Print("本次支出说明：")
 			fmt.Scanln(&note)
 			details += fmt.Sprintf("支出\t%v\t\t%v\t\t%v\n", balance, money, note)
+			isCount = true
 		case "4":
 			fmt.Printf("确认退出(Y/N):")
 			var A string

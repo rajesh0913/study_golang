@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	file, err := os.Open("F:/GO/project/src/go_code/chapter13_file/demo02.file_detail/test.txt")
+	file, err := os.Open("chapter13_file/demo02.file_reader/test.txt")
 	if err != nil {
 		fmt.Println("open file err: ", err)
 	}

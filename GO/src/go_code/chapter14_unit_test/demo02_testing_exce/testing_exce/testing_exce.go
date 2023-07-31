@@ -24,7 +24,7 @@ func (this *Monster) Store() bool {
 	}
 	//保存文件
 
-	filePath := "C:/Users/Administrator/OneDrive/文档/OneDrive/codes/study_golang/GO/src/go_code/chapter14_unit_test/demo02_testing_exce/testing_exce/1.txt"
+	filePath := "go_code/chapter14_unit_test/demo02_testing_exce/testing_exce/1.txt"
 	file, err := os.OpenFile(filePath, os.O_WRONLY|os.O_TRUNC, 0666)
 	if err != nil {
 		fmt.Println("file open err = ", err)
@@ -42,10 +42,9 @@ func (this *Monster) Store() bool {
 	}
 	return true
 }
-
 func (this *Monster) ReStore() bool {
 	//文件读取序列化的字符串
-	filePath := "C:/Users/Administrator/OneDrive/文档/OneDrive/codes/study_golang/GO/src/go_code/chapter14_unit_test/demo02_testing_exce/testing_exce/1.txt"
+	filePath := "go_code/chapter14_unit_test/demo02_testing_exce/testing_exce/1.txt"
 	data, err := ioutil.ReadFile(filePath)
 	if err != nil {
 		fmt.Println("file read err = ", err)

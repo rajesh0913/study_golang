@@ -8,7 +8,7 @@ import (
 func sum(n1 int, n2 int) int {
 	//执行到defer，会将其后的程序语句压入独立栈中
 	//函数执行完毕之后，从defer栈中"先入后出"出栈
-	//入栈时，相关变量也会拷贝入栈
+	//入栈时，相关变量也会拷贝入栈——>!!注意此时的变量与下面的操作分开了
 	defer fmt.Println("n1 = ", n1) //3.n1 = 10
 	defer fmt.Println("n2 = ", n2) //2.n2 = 20
 
@@ -21,7 +21,7 @@ func sum(n1 int, n2 int) int {
 }
 
 func main() {
-
+	fmt.Println("test 1.")
 	fmt.Println("sum = ", sum(10, 20)) //4.sum = 32
 	fmt.Println()
 

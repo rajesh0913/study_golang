@@ -83,7 +83,7 @@ func main() {
 	fmt.Println("分割字符串为字符串数组\n", strArr9)
 	fmt.Println(len(strArr9))
 	for i := 0; i < len(strArr9); i++ {
-		fmt.Printf("%v,", strArr9[i])
+		fmt.Printf("%v\n", strArr9[i])
 	}
 
 	//15.字符串进行大小写字母转换
@@ -100,17 +100,18 @@ func main() {
 	fmt.Println()
 
 	//17.消除字符串左右两边指定字符
-	str10 := strings.Trim("     !消除字符串左右两边指定字符    !      ", " !")
+	str10 := strings.Trim("  !消除字符串左右两边指定字符    !", " !")
 	str10_strconv := []rune(str10)
 	for i := 0; i < len(str10_strconv); i++ {
 		fmt.Printf("%q", str10_strconv[i])
 	}
+	fmt.Println()
 
 	//18.消除字符串左边指定字符
 	str12 := strings.TrimLeft("     !消除字符串左边指定字符    !      ", " !")
 	fmt.Println(str12)
 	//19.消除字符串右边指定字符
-	str13 := strings.TrimLeft("     !消除字符串右边指定字符    !      ", " !")
+	str13 := strings.TrimRight("     !消除字符串右边指定字符    !      ", " !")
 	fmt.Println(str13)
 
 	//20.判断字符串是否以指定子串开头

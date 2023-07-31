@@ -30,4 +30,9 @@ func main() {
 	fmt.Println(a.Name)
 	fmt.Println(a.count(10))
 
+	var b A
+	b.Name = "jerry"
+	b.test()
+	fmt.Println(b.Name)
+
 }

@@ -18,8 +18,8 @@ type CharCount struct {
 }
 
 func main() {
-	file_path01 := "F:/GO/project/src/go_code/chapter13_file/demo05_file_character_count/develop.txt"
-	file_path02 := "F:/GO/project/src/go_code/chapter13_file/demo05_file_character_count/out.txt"
+	file_path01 := "./develop.txt"
+	file_path02 := "./out.txt"
 	file01, err := os.Open(file_path01)
 	if err != nil {
 		fmt.Println("open file fail: ", err)

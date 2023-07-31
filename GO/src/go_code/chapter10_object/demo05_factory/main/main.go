@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	//工厂模式使用样例，挎包使用非全局作用域结构体
+	//工厂模式使用样例，跨包使用非全局作用域结构体
 	Stu := model.NewStudent("tom", 22)
 	fmt.Println(*Stu)
 	//Name-Age 可以直接调用

@@ -17,7 +17,7 @@ func main() {
 
 	//定义
 	var Slice []int = intArr2[1:2]
-	fmt.Println("Slice capability = ", cap(intArr))
+	fmt.Println("Slice capability = ", cap(Slice))
 	//方式1：引用数组
 	Slice = intArr[1:3] //左闭右开
 	fmt.Println("intArr = ", intArr)

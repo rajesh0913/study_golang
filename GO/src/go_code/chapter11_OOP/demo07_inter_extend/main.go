@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+//这个示例跟要讲解的不符合
 type Monkey struct {
 	Name string
 }

@@ -7,7 +7,7 @@ import (
 func main() {
 	//演示string类型使用
 	var address string = "天秀花园"
-	fmt.Print(address)
+	fmt.Println(address)
 	//golang中：字符串一旦赋值，字符串不可修改
 
 	//两种表现形式：

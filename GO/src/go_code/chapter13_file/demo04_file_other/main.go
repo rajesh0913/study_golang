@@ -39,15 +39,15 @@ func File_Copy(dir_file string, src_file string) (written int64, err error) {
 	defer writer_file.Close()
 
 	writer := bufio.NewWriter(writer_file)
-
+	writer.Flush()
 	return io.Copy(writer, reader)
 
 }
 
 func main() {
 	//1. 文件内容拷贝
-	file_path01 := "F:/GO/project/src/go_code/chapter13_file/demo04_file_other/test01.txt"
-	file_path02 := "F:/GO/project/src/go_code/chapter13_file/demo04_file_other/test02.txt"
+	file_path01 := "./test01.txt"
+	file_path02 := "./test02.txt"
 	//读取到内存
 	data, err := ioutil.ReadFile(file_path01)
 	if err != nil {
@@ -61,8 +61,8 @@ func main() {
 	}
 
 	//3. 文件拷贝
-	file_path01 = "F:/GO/project/src/go_code/chapter13_file/demo04_file_other/test_copy_reader/1.jpg"
-	file_path02 = "F:/GO/project/src/go_code/chapter13_file/demo04_file_other/test_copy_writer/2.jpg"
+	file_path01 = "./test_copy_reader/1.jpg"
+	file_path02 = "./test_copy_writer/2.jpg"
 
 	_, err = File_Copy(file_path02, file_path01)
 	if err != nil {

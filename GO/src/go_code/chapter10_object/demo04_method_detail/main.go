@@ -6,7 +6,7 @@ type A struct {
 	Num int
 }
 
-//2. 为提高效率，通常方法和结构体的指针类型进行绑定
+//2. 为提高效率(从值拷贝变为地址传递），通常方法和结构体的指针类型进行绑定
 func (A *A) function() int {
 	//fmt.Println((*A).Num)
 	return (*A).Num * (*A).Num
