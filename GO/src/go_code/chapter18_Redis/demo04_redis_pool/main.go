@@ -14,7 +14,7 @@ import (
 //定义全局pool
 var pool *redis.Pool
 
-//启动程序即初始化
+// 启动程序即初始化
 func init() {
 	pool = &redis.Pool{
 		MaxIdle:     8,   //最大空闲链接数
