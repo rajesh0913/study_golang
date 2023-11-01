@@ -13,6 +13,28 @@ import (
 	"gorm.io/gorm"
 )
 
+/*
+SendMsg->node.dataqueue,node.conn:websocket->sendProc(chat:go sendProc)
+
+go recvProc(node.conn:websocket):read->dispatch-SendMsg(msg.targetId) + broadMsg?->udpSendChan<-data
+->udpSendProc
+为什么做消息转发的时候先走了websocket，又还要走broadMsg->udpSendProc
+udp的init似乎没有用到
+--猜想：做局域网的判断？如果是在局域网通信消息就直接走udp？所以这里的消息转发其实可以把broadMsg注释掉不走udp？
+
+
+redis的subscribe和publish转发消息的功能什么时候、哪里会用到
+--猜想：心跳检测？用于系统和客户端直接通信？
+
+为什么有的地方要用websocket，有的又要有udp，有的又是http的连接
+--猜想：udp是局域网做通信，http和websocket不懂
+--在对注册、建群、加好友请求做resp回复的时候用的是http短连接
+--跳转到聊天界面是建立长链接所以用websocket？发送消息、接收消息用的是websocket长链接？为何
+
+SendMsg、SendUserMsg其实和redis的订阅和转发没有关系？
+
+*/
+
 type Message struct {
 	gorm.Model
 	FromId   int64
@@ -98,18 +120,6 @@ func sendProc(node *Node) {
 	}
 }
 
-// func recvProc(node *Node) {
-// 	for {
-// 		_, data, err := node.Conn.ReadMessage()
-// 		if err != nil {
-// 			fmt.Println("recvProc node.WriteMessage fail err: ", err)
-// 			return
-// 		}
-// 		broadMsg(data)
-// 		fmt.Println("[ws] recvProc <<<<<< ", string(data))
-// 	}
-// }
-
 func recvProc(node *Node) {
 	for {
 		_, data, err := node.Conn.ReadMessage()
@@ -140,6 +150,7 @@ var udpSendChan chan []byte = make(chan []byte, 1024)
 func broadMsg(data []byte) {
 	udpSendChan <- data
 }
+
 func init() {
 	go udpSendProc()
 	go udpRecvProc()
